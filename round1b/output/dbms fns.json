@@ -1,0 +1,375 @@
+{
+  "title": "dbms fns",
+  "outline": [
+    {
+      "level": "H2",
+      "text": "NUMERIC FUNCTIONS",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "1.  SELECT ABS(-243.5) FROM DUAL;",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "ABS is a function used to return the absolute (non-negative) value of a",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "numeric expression. It converts the negative number to its positive",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "equivalent.",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "DUAL is a dummy table in Oracle, used when you want to perform a",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "calculation or retrieve a value without selecting from an actual table.",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "SELECT ABS(243.5) FROM DUAL;",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "2.  SELECT POWER(4,2) FROM DUAL;",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "SELECT POWER(3,2) FROM DUAL;",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "SELECT POWER(-3,3) FROM DUAL;",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "4^2",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "3.  SELECT ROUND (2.234) FROM DUAL;",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "SELECT ROUND (2.50) FROM DUAL;",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "SELECT ROUND (2.99) FROM DUAL;",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "SELECT ROUND (234.999, 2) FROM DUAL;",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "Here the output is 235 because when we round off 999 it will obviously",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "give 00 therefore it doesn’t as it usually will when we use a number we",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "have to round off to. For e.g.",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "SELECT ROUND (234.799, 2) FROM DUAL;",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "4.  SELECT SQRT(25) FROM DUAL;",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "SELECT SQRT(17) FROM DUAL;",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "5.  SELECT EXP(1) FROM DUAL;",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "SELECT EXP(-5) FROM DUAL;",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "6.  SELECT EXTRACT(YEAR FROM DATE'2003-01-22') FROM DUAL;",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "SELECT EXTRACT(DAY FROM DATE'2003-01-22') FROM DUAL;",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "We can only use extract to get the numeric values of the day, month, or the",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "year and it can not be used to get the name of the same.",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "7.  SELECT GREATEST(30,6,5,9) FROM DUAL;",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "SELECT GREATEST(30,6,5,30.0) FROM DUAL;",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "SELECT GREATEST(30.2,6,5,30.1) FROM DUAL;",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "8.  SELECT LEAST(30,6,5,9) FROM DUAL;",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "Same as greatest.",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "9.  SELECT MOD(18,4) FROM DUAL;",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "The MOD function returns the remainder of the division of the first",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "argument by the second argument.",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "SELECT MOD(2,4) FROM DUAL;",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "The function calculates the remainder of the division of the first argument",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "(2) by the second argument (4). Since 2 divided by 4 equals 0 with a",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "remainder of 2, the output of the query will be 2.",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "10.  SELECT TRUNC(5.556,2) FROM DUAL;",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "The TRUNC function is used to truncate a number to a specified number",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "of decimal places.",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "11.  SELECT FLOOR(12.45) FROM DUAL;",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "SELECT FLOOR(12.66) FROM DUAL;",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "This essentially \"rounds down\" the decimal value to the nearest integer.",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "12.  SELECT CEIL(12.45) FROM DUAL;",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "SELECT CEIL(12.99) FROM DUAL;",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "This essentially \"rounds up\" the decimal value to the nearest integer.",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "STRING FUNCTIONS",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "1.  SELECT LOWER('HAHAHAHAHAHAHA') FROM DUAL;",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "return the lowercase version of the string",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "2.  SELECT INITCAP('HEHEHEHE HAAAHAHA') FROM DUAL;",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "return the string with the first letter of each word capitalized and the rest",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "in lowercase",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "3.  SELECT UPPER('hehehehehe hahahhaha') FROM DUAL;",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "return the uppercase version of the string",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "4.  SUBSTR function is to extract a substring from the string",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "SELECT SUBSTR('tanviii',2,4) FROM DUAL;",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "5.  SELECT ASCII('A') FROM DUAL;",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "It returns the ASCII value of the character 'A'. In ASCII encoding, each",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "character is represented by a numerical value.",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "6.  SELECT INSTR('tanviii','i') FROM DUAL;",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "find the position of the first occurrence of the character 'i' within the",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "string 'tanviii'.",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "7.  SELECT TRANSLATE('tanviii','an','va') FROM DUAL;",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "8.  SELECT LENGTH('tanvi') FROM DUAL;",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "9.  SELECT LTRIM('tanvi','ta') FROM DUAL;",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "10.  SELECT RTRIM('tanvi','vi') FROM DUAL;",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "11.  SELECT TRIM(BOTH 'S' FROM 'SANDS') FROM DUAL;",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "SELECT TRIM(LEADING 'S' FROM 'SANDS') FROM DUAL;",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "SELECT TRIM(TRAILING 'S' FROM 'SANDS') FROM DUAL;",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "12.  SELECT LPAD('tanvi',7,'t') FROM DUAL;",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "13.  SELECT RPAD('tanvi',7,'i') FROM DUAL;",
+      "page": 6
+    }
+  ]
+}

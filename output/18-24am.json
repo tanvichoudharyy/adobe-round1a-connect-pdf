@@ -1,0 +1,1320 @@
+{
+  "title": "18-24am",
+  "outline": [
+    {
+      "level": "H3",
+      "text": "Avisha Maheshwari",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "220153",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "28",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "PROGRAM 18 : Compute KLT Kernel of Various Sizes and Apply to KLT of Different",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "Signals (1D, 2D).",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "N = [4, 8, 16];",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "for i = 1:length(N)",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "n = N(i);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "X = randn(n);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "C = cov(X);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "[E, D] = eig(C);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "fprintf('KLT Kernel of size %d:\\n', n);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "disp(E); % Display KLT Kernel",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "end",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "x_1D = rand(1, 8);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "Cx = cov(x_1D);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "[E_1D, D_1D] = eig(Cx);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "x_1D_KLT = E_1D' * x_1D(:);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "x_1D_Reconstructed = E_1D * x_1D_KLT;",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "figure;",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,1,1); plot(x_1D, '-o'); title('Original 1D Signal');",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,1,2); plot(diag(D_1D), '-o'); title('Eigenvalues (KLT Spectrum)');",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,1,3); plot(x_1D_Reconstructed, '-o'); title('Reconstructed 1D Signal');",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = imread('download.jpg');",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "if size(I_2D, 3) == 3",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = rgb2gray(I_2D);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "end",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = double(I_2D);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "[m, n] = size(I_2D);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "new_size = min(m, n);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = imresize(I_2D, [new_size, new_size]);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "C_2D = cov(I_2D);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "[E_2D, D_2D] = eig(C_2D);",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "I_2D_KLT = E_2D' * I_2D * E_2D;",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "I_2D_Reconstructed = E_2D * I_2D_KLT * E_2D';",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "figure;",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "subplot(2,2,1); imshow(I_2D, []); title('Original Image');",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "subplot(2,2,2); imshow(log(1 + abs(D_2D)), []); title('KLT Spectrum (Eigenvalues)');",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "subplot(2,2,3); imshow(I_2D_Reconstructed, []); title('Reconstructed Image');",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "Avisha Maheshwari",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "220153",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "29",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "subplot(2,2,4); imshow(abs(I_2D - I_2D_Reconstructed), []); title('Difference Between",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "Original and Reconstructed');",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "OUTPUT:",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "Avisha Maheshwari",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "220153",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "30",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "PROGRAM 19: Compute KLT of Different Signals (1D, 2D) [Image] using MATLAB",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "function klt() /inv(klt()).",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "N = [4, 8, 16];",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "for i = 1:length(N)",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "n = N(i);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "X = randn(n, n);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "C = cov(X);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "[E, D] = eig(C);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "fprintf('KLT Kernel of size %d:\\n', n);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "disp(E);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "end",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "x_1D = rand(8, 1);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "Cx = cov(x_1D);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "[E_1D, D_1D] = eig(Cx);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "x_1D_KLT = E_1D' * x_1D;",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "x_1D_Reconstructed = E_1D * x_1D_KLT;",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "figure;",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,1,1); plot(x_1D, '-o'); title('Original 1D Signal');",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,1,2); plot(diag(D_1D), '-o'); title('KLT Spectrum (Eigenvalues)');",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,1,3); plot(x_1D_Reconstructed, '-o'); title('Reconstructed 1D Signal');",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = imread('download.jpg');",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "if size(I_2D, 3) == 3",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = rgb2gray(I_2D);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "end",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = double(I_2D);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "[m, n] = size(I_2D);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "new_size = min(m, n);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = imresize(I_2D, [new_size, new_size]);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "C_2D = cov(I_2D);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "[E_2D, D_2D] = eig(C_2D);",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "I_2D_KLT = E_2D' * I_2D * E_2D;",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "I_2D_Reconstructed = E_2D * I_2D_KLT * E_2D';",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "figure;",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "subplot(2,2,1); imshow(I_2D, []); title('Original Image');",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "subplot(2,2,2); imshow(log(1 + abs(D_2D)), []); title('KLT Spectrum (Eigenvalues)');",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "subplot(2,2,3); imshow(I_2D_Reconstructed, []); title('Reconstructed Image');",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "subplot(2,2,4); imshow(abs(I_2D - I_2D_Reconstructed), []); title('Difference Between",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "Original and Reconstructed');",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "Avisha Maheshwari",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "220153",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "31",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "OUTPUT:",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "Avisha Maheshwari",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "220153",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "32",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "PROGRAM 20 : Apply a mask on image and apply KLT & SVD and compare their results.",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = imread('download.jpg');",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "if size(I_2D, 3) == 3",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = rgb2gray(I_2D);",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "end",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = double(I_2D);",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "[m, n] = size(I_2D);",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "new_size = min(m, n);",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = imresize(I_2D, [new_size, new_size]);",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "mask = zeros(new_size, new_size);",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "mask(1:50, 1:50) = 1;",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "C_2D = cov(I_2D);",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "[E_2D, D_2D] = eig(C_2D);",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "I_2D_KLT = E_2D' * I_2D * E_2D;",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "I_2D_KLT_Masked = I_2D_KLT .* mask;",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "I_2D_KLT_Reconstructed = E_2D * I_2D_KLT_Masked * E_2D';",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "[U, S, V] = svd(I_2D);",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "S_Masked = S .* mask;",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "I_2D_SVD_Reconstructed = U * S_Masked * V';",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "figure;",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,1); imshow(I_2D, []); title('Original Image');",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,2); imshow(log(1 + abs(D_2D)), []); title('KLT Spectrum');",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,3); imshow(log(1 + abs(S)), []); title('SVD Spectrum');",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,4); imshow(I_2D_KLT, []); title('KLT Transformed Image');",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,5); imshow(I_2D_SVD_Reconstructed, []); title('SVD Reconstructed Image');",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,6); imshow(I_2D_KLT_Reconstructed, []); title('KLT Reconstructed Image');",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,7); imshow(abs(I_2D - I_2D_SVD_Reconstructed), []); title('SVD Error');",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,8); imshow(abs(I_2D - I_2D_KLT_Reconstructed), []); title('KLT Error');",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,9); imshow(abs(I_2D_SVD_Reconstructed - I_2D_KLT_Reconstructed), []);",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "title('Difference SVD vs KLT');",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = imread('download.jpg');",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "if size(I_2D, 3) == 3",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = rgb2gray(I_2D);",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "end",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = double(I_2D);",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "[m, n] = size(I_2D);",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "new_size = min(m, n);",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "I_2D = imresize(I_2D, [new_size, new_size]);",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "Avisha Maheshwari",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "220153",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "33",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "mask = zeros(new_size, new_size);",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "mask(1:50, 1:50) = 1;",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "C_2D = cov(I_2D);",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "[E_2D, D_2D] = eig(C_2D);",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "I_2D_KLT = E_2D' * I_2D * E_2D;",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "I_2D_KLT_Masked = I_2D_KLT .* mask;",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "I_2D_KLT_Reconstructed = E_2D * I_2D_KLT_Masked * E_2D';",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "[U, S, V] = svd(I_2D);",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "S_Masked = S .* mask;",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "I_2D_SVD_Reconstructed = U * S_Masked * V';",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "figure;",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,1); imshow(I_2D, []); title('Original Image');",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,2); imshow(log(1 + abs(D_2D)), []); title('KLT Spectrum');",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,3); imshow(log(1 + abs(S)), []); title('SVD Spectrum');",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,4); imshow(I_2D_KLT, []); title('KLT Transformed Image');",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,5); imshow(I_2D_SVD_Reconstructed, []); title('SVD Reconstructed Image');",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,6); imshow(I_2D_KLT_Reconstructed, []); title('KLT Reconstructed Image');",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,7); imshow(abs(I_2D - I_2D_SVD_Reconstructed), []); title('SVD Error');",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,8); imshow(abs(I_2D - I_2D_KLT_Reconstructed), []); title('KLT Error');",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "subplot(3,3,9); imshow(abs(I_2D_SVD_Reconstructed - I_2D_KLT_Reconstructed), []);",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "title('Difference SVD vs KLT');",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "OUTPUT:",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "Figure 1                                                             Figure 2",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "Avisha Maheshwari",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "220153",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "34",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "PROGRAM 21: Apply Average, Median, Min, and Max Filters & Comparing Metrics.",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "clc; clear; close all;",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "data = [",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "10 20 30 40 50;",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "15 25 35 45 55;",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "20 30 40 50 60;",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "25 35 45 55 65;",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "30 40 50 60 70",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "];",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "avg_filter = fspecial('average', [3 3]);",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "filtered_avg = imfilter(data, avg_filter, 'replicate');",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "filtered_median = medfilt2(data, [3 3]);",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "filtered_min = ordfilt2(data, 1, ones(3,3), 'symmetric');",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "filtered_max = ordfilt2(data, 9, ones(3,3), 'symmetric');",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "disp('Original Data Matrix:');",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "disp(data);",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "disp('Average Filtered Matrix:');",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "disp(filtered_avg);",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "disp('Median Filtered Matrix:');",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "disp(filtered_median);",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "disp('Minimum Filtered Matrix:');",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "disp(filtered_min);",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "disp('Maximum Filtered Matrix:');",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "disp(filtered_max);",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "Output:",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "Avisha Maheshwari",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "220153",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "35",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "PROGRAM 22: Apply Gamma, Log, Square, and Square Root Transformations.",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "clc; clear; close all;",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "data = [",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "10 20 30 40 50;",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "15 25 35 45 55;",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "20 30 40 50 60;",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "25 35 45 55 65;",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "30 40 50 60 70",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "];",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "data_vector = data(:);",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "[counts, bin_edges] = histcounts(data_vector, 'BinMethod', 'integer');",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "figure;",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "bar(bin_edges(1:end-1), counts, 'BarWidth', 1);",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "title('Original Data Histogram');",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "xlabel('Data Value');",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "ylabel('Frequency');",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "data_eq = histeq(data, numel(unique(data_vector)));",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "data_eq_vector = data_eq(:);",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "[counts_eq, bin_edges_eq] = histcounts(data_eq_vector, 'BinMethod', 'integer');",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "figure;",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "bar(bin_edges_eq(1:end-1), counts_eq, 'BarWidth', 1);",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "title('Equalized Data Histogram');",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "xlabel('Data Value');",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "ylabel('Frequency');",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "disp('Original Data Matrix:');",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "disp(data);",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "disp('Equalized Data Matrix:');",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "disp(data_eq);",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "Output:",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "Avisha Maheshwari",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "220153",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "36",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "PROGRAM 23: Apply local operations or filters to a given image and compare the",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "results based on the output image.",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "clc; clear; close all;",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "img = [",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "0.2, 0.3, 0.4, 0.3, 0.2;",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "0.3, 0.5, 0.6, 0.5, 0.3;",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "0.4, 0.6, 0.8, 0.6, 0.4;",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "0.3, 0.5, 0.6, 0.5, 0.3;",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "0.2, 0.3, 0.4, 0.3, 0.2",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "];",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "laplacian_filter = fspecial('laplacian', 0.2);",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "sharpened = img - imfilter(img, laplacian_filter, 'replicate');",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "gaussian_blur = imgaussfilt(img, 2);",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "unsharp_mask = img + 1.5 * (img - gaussian_blur);",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "figure;",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "subplot(1,3,1), imshow(img, []), title('Original Matrix');",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "subplot(1,3,2), imshow(sharpened, []), title('Laplacian Filtered Matrix');",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "subplot(1,3,3), imshow(unsharp_mask, []), title('Unsharp Masking Result');",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "Output:",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "Avisha Maheshwari",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "220153",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "37",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "PROGRAM 24:  Calculate histogram of a given image and apply the various histogram",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "enhanced methods and compare the result based on the resultant image and histograms.",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "use matrix",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "imageMatrix = uint8(rand(256) * 255);",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "figure;",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "subplot(2, 2, 1); imshow(imageMatrix); title('Original Image');",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "subplot(2, 2, 2); bar(imhist(imageMatrix)); title('Original Histogram');",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "imageEqualized = histeq(imageMatrix);",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "subplot(2, 2, 3); imshow(imageEqualized); title('Equalized Image');",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "subplot(2, 2, 4); bar(imhist(imageEqualized)); title('Equalized Histogram');",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "min_val = double(min(imageMatrix(:)));",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "max_val = double(max(imageMatrix(:)));",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "contrastStretched = uint8(255 * (double(imageMatrix) - min_val) / (max_val - min_val));",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "figure;",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "subplot(1, 2, 1); imshow(contrastStretched); title('Contrast Stretched Image');",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "subplot(1, 2, 2); bar(imhist(contrastStretched)); title('Contrast Stretched Histogram');",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "imageCLAHE = adapthisteq(imageMatrix);",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "figure;",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "subplot(1, 2, 1); imshow(imageCLAHE); title('Adaptive Histogram Equalization');",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "subplot(1, 2, 2); bar(imhist(imageCLAHE)); title('Histogram After Adaptive Equalization');",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "Output:",
+      "page": 10
+    }
+  ]
+}
